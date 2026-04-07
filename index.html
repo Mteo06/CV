@@ -6,11 +6,11 @@
     <title>Matteo Di Mella - Portfolio</title>
     <style>
         :root {
-            --bg-color: #0f172a;       /* Dark Navy */
-            --card-bg: #1e293b;        /* Lighter Navy */
-            --text-main: #f1f5f9;      /* White-ish */
-            --text-muted: #94a3b8;     /* Grey */
-            --accent: #38bdf8;         /* Light Blue */
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
             --accent-hover: #0ea5e9;
         }
 
@@ -29,15 +29,25 @@
             padding: 20px;
         }
 
-        /* Header */
+        /* ===== HEADER ===== */
         header {
             text-align: center;
             padding: 60px 0 40px;
             border-bottom: 2px solid var(--card-bg);
         }
 
+        .profile-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent);
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+
         h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin: 0;
             background: linear-gradient(90deg, var(--accent), #a855f7);
             -webkit-background-clip: text;
@@ -45,9 +55,9 @@
         }
 
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         .contact-info {
@@ -58,40 +68,44 @@
             flex-wrap: wrap;
         }
 
-        .contact-info a, .contact-info span {
+        .contact-info a,
+        .contact-info span {
             color: var(--text-muted);
             text-decoration: none;
             font-size: 0.95rem;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
 
-        .contact-info a:hover { color: var(--accent); }
+        .contact-info a:hover {
+            color: var(--accent);
+        }
 
-        /* Sections */
+        /* ===== SECTIONS ===== */
         section {
             margin-top: 50px;
         }
 
         h2 {
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             border-left: 4px solid var(--accent);
             padding-left: 15px;
             margin-bottom: 25px;
         }
 
-        /* Cards & Lists */
+        /* ===== CARDS ===== */
         .card {
             background-color: var(--card-bg);
             padding: 20px;
             border-radius: 12px;
             margin-bottom: 20px;
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .card:hover {
             transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
         }
 
         .card-header {
@@ -102,70 +116,168 @@
             margin-bottom: 10px;
         }
 
-        .role { font-weight: bold; font-size: 1.1rem; }
-        .company { color: var(--accent); }
-        .date { color: var(--text-muted); font-size: 0.9rem; font-style: italic; }
+        .role {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
 
-        /* Skills Grid */
+        .company {
+            color: var(--accent);
+        }
+
+        .date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* ===== SKILLS ===== */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
         }
 
         .skill-tag {
             background-color: rgba(56, 189, 248, 0.1);
             color: var(--accent);
-            padding: 8px 15px;
+            padding: 10px 15px;
             border-radius: 20px;
             text-align: center;
             font-weight: 500;
+            transition: background 0.2s;
         }
 
-        /* Footer */
+        .skill-tag:hover {
+            background-color: rgba(56, 189, 248, 0.2);
+        }
+
+        /* ===== PROJECT CARDS ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            border: 1px solid transparent;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 25px rgba(56, 189, 248, 0.15);
+            border-color: var(--accent);
+        }
+
+        .project-card .project-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .project-card .project-title {
+            font-weight: bold;
+            font-size: 1.15rem;
+        }
+
+        .project-card .project-desc {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            flex-grow: 1;
+        }
+
+        .project-card .project-link {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* ===== CERTIFICATES ===== */
+        .cert-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .cert-list li {
+            margin-bottom: 12px;
+            padding-left: 5px;
+        }
+
+        /* ===== FOOTER ===== */
         footer {
             text-align: center;
             margin-top: 60px;
-            padding: 20px;
+            padding: 25px;
             color: var(--text-muted);
             font-size: 0.8rem;
             border-top: 1px solid var(--card-bg);
         }
 
-        /* Mobile Responsive */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 600px) {
-            h1 { font-size: 2.2rem; }
-            .contact-info { flex-direction: column; align-items: center; gap: 10px; }
+            h1 {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
-    <!-- Font Awesome per icone (opzionale ma consigliato) -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <div class="container">
+        <!-- HEADER + FOTO -->
         <header>
+            <img src="foto-profilo.jpg" alt="Foto Profilo Matteo Di Mella" class="profile-photo">
             <h1>Matteo Di Mella</h1>
             <div class="subtitle">Studente di Ingegneria Elettrica @ Politecnico di Milano</div>
-            
+
             <div class="contact-info">
-                <a href="mailto:mdimella@outlook.com"><i class="fas fa-envelope"></i> mdimella@outlook.com</a>
-                <span><i class="fas fa-map-marker-alt"></i> Milano, Italia</span>
+                <a href="mailto:mdimella@outlook.com">
+                    <i class="fas fa-envelope"></i> mdimella@outlook.com
+                </a>
+                <span>
+                    <i class="fas fa-map-marker-alt"></i> Milano, Italia
+                </span>
             </div>
         </header>
 
+        <!-- PROFILO -->
         <section id="about">
             <h2>Profilo</h2>
             <p>
-                Studente del primo anno universitario con una solida formazione secondaria in informatica e competenze linguistiche certificate. 
-                Fortemente motivato ad apprendere e crescere professionalmente. Propenso al lavoro di squadra con un forte interesse per le nuove tecnologie 
-                e sistemi informatici. Disponibile e orientato al problem solving.
+                Studente del primo anno universitario con una solida formazione secondaria in informatica
+                e competenze linguistiche certificate. Fortemente motivato ad apprendere e crescere
+                professionalmente. Propenso al lavoro di squadra con un forte interesse per le nuove
+                tecnologie e sistemi informatici. Disponibile e orientato al problem solving.
             </p>
         </section>
 
+        <!-- ISTRUZIONE -->
         <section id="education">
             <h2>Istruzione</h2>
-            
+
             <div class="card">
                 <div class="card-header">
                     <div>
@@ -189,6 +301,7 @@
             </div>
         </section>
 
+        <!-- ESPERIENZA -->
         <section id="experience">
             <h2>Esperienza Lavorativa</h2>
 
@@ -223,10 +336,52 @@
             </div>
         </section>
 
+        <!-- PROGETTI -->
+        <section id="projects">
+            <h2>Progetti</h2>
+            <div class="projects-grid">
+
+                <a href="https://poolcalendar.vercel.app/" target="_blank" class="project-card">
+                    <span class="project-icon"><i class="fas fa-calendar-alt"></i></span>
+                    <span class="project-title">Pool Calendar</span>
+                    <span class="project-desc">
+                        Applicazione web per la gestione di calendari e prenotazioni per impianti natatori.
+                    </span>
+                    <span class="project-link">
+                        Visitalo <i class="fas fa-arrow-right"></i>
+                    </span>
+                </a>
+
+                <a href="https://moneyspliit.vercel.app/" target="_blank" class="project-card">
+                    <span class="project-icon"><i class="fas fa-coins"></i></span>
+                    <span class="project-title">Money Spliit</span>
+                    <span class="project-desc">
+                        Strumento per la divisione e gestione delle spese condivise tra amici o gruppi.
+                    </span>
+                    <span class="project-link">
+                        Visitalo <i class="fas fa-arrow-right"></i>
+                    </span>
+                </a>
+
+                <a href="https://multiscreen-five.vercel.app/" target="_blank" class="project-card">
+                    <span class="project-icon"><i class="fas fa-desktop"></i></span>
+                    <span class="project-title">Multi Screen Five</span>
+                    <span class="project-desc">
+                        Progetto sperimentale per la gestione e visualizzazione di contenuti su schermi multipli.
+                    </span>
+                    <span class="project-link">
+                        Visitalo <i class="fas fa-arrow-right"></i>
+                    </span>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- COMPETENZE -->
         <section id="skills">
             <h2>Competenze</h2>
             <div class="skills-grid">
-                <div class="skill-tag">Programmazone C</div>
+                <div class="skill-tag">Programmazione C</div>
                 <div class="skill-tag">Java</div>
                 <div class="skill-tag">PHP</div>
                 <div class="skill-tag">SQL</div>
@@ -235,16 +390,18 @@
             </div>
         </section>
 
+        <!-- CERTIFICATI -->
         <section id="certificates">
             <h2>Certificati e Corsi</h2>
-            <ul style="list-style-type: none; padding: 0;">
-                <li style="margin-bottom: 10px;"> <strong>Brevetto Professionale Assistente Bagnanti</strong> (FIN)</li>
-                <li style="margin-bottom: 10px;"> <strong>Python Fundamentals</strong> (HackerRank)</li>
-                <li style="margin-bottom: 10px;"> <strong>IT Essentials</strong> (Cisco Networking Academy)</li>
-                <li> <strong>BLSD</strong> (Rianimazione e Defibrillazione - AREU)</li>
+            <ul class="cert-list">
+                <li>🏅 <strong>Brevetto Professionale Assistente Bagnanti</strong> (FIN)</li>
+                <li>🐍 <strong>Python Fundamentals</strong> (HackerRank)</li>
+                <li>🖥️ <strong>IT Essentials</strong> (Cisco Networking Academy)</li>
+                <li>💓 <strong>BLSD</strong> (Rianimazione e Defibrillazione - AREU)</li>
             </ul>
         </section>
 
+        <!-- FOOTER -->
         <footer>
             <p>&copy; 2026 Matteo Di Mella. Sito creato a scopo curriculare.</p>
             <p>Autorizzo il trattamento dei dati personali ai sensi del D.Lgs. 196/2003 e GDPR 679/16.</p>
